@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Expense Management System</title>
+
+    <!-- Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- Top Bar -->
+      <div class="top-bar">
+        <h1>Expense Tracker</h1>
+        <button onclick="toggleTheme()" class="theme-btn">🌙</button>
+      </div>
+
+      <!-- Form -->
+      <div class="card">
+        <input type="text" id="desc" placeholder="Enter expense (e.g. Pizza)" />
+        <input type="number" id="amount" placeholder="Amount (₹)" />
+
+        <select id="category">
+          <option value="Food">Food</option>
+          <option value="Travel">Travel</option>
+          <option value="Shopping">Shopping</option>
+        </select>
+
+        <button onclick="addExpense()">Add</button>
+      </div>
+
+      <!-- Filter -->
+      <div class="card small">
+        <select id="filter" onchange="filterExpenses()">
+          <option value="All">All</option>
+          <option value="Food">Food</option>
+          <option value="Travel">Travel</option>
+          <option value="Shopping">Shopping</option>
+        </select>
+      </div>
+
+      <!-- Total -->
+      <h2>Total: ₹ <span id="total">0</span></h2>
+
+      <!-- Empty -->
+      <p id="emptyMsg">No expenses yet 👀</p>
+
+      <!-- List -->
+      <ul id="list"></ul>
+
+      <!-- Chart -->
+      <div class="card">
+        <canvas id="expenseChart"></canvas>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
